@@ -13,9 +13,8 @@ function loadCategory(cat) {
 
   currentCategory.forEach((src, index) => {
     const img = document.createElement("img");
-    img.src = src;                 // ✅ DÜZELTİLDİ
+    img.src = src;
     img.loading = "lazy";
-    img.decoding = "async";
 
     img.onclick = () => openImage(index);
     gallery.appendChild(img);
@@ -41,14 +40,27 @@ overlay.addEventListener("click", () => {
   overlay.style.display = "none";
 });
 
+document.querySelector(".nav.left").onclick = e => {
+  e.stopPropagation();
+  currentIndex =
+    (currentIndex - 1 + currentCategory.length) % currentCategory.length;
+  overlayImg.src = currentCategory[currentIndex];
+};
+
+document.querySelector(".nav.right").onclick = e => {
+  e.stopPropagation();
+  currentIndex =
+    (currentIndex + 1) % currentCategory.length;
+  overlayImg.src = currentCategory[currentIndex];
+};
+
 document.querySelectorAll(".sidebar button").forEach(btn => {
   btn.onclick = () => loadCategory(btn.dataset.cat);
 });
 
 loadCategory("fabrika_tanitimi");
 
-/* ===== DİL DESTEĞİ ===== */
-
+/* === DİL === */
 const translations = {
   tr: {
     title: "Ergene Mobilya Sunumu",
@@ -76,7 +88,6 @@ const translations = {
 
 function setLanguage(lang) {
   document.querySelector(".title").innerText = translations[lang].title;
-
   document.querySelectorAll(".sidebar button").forEach(btn => {
     btn.innerText = translations[lang][btn.dataset.cat];
   });
@@ -84,19 +95,3 @@ function setLanguage(lang) {
 
 document.getElementById("tr").onclick = () => setLanguage("tr");
 document.getElementById("en").onclick = () => setLanguage("en");
-
-/* ===== SAĞ / SOL OKLAR ===== */
-
-document.querySelector(".nav.left").onclick = e => {
-  e.stopPropagation();
-  currentIndex =
-    (currentIndex - 1 + currentCategory.length) % currentCategory.length;
-  overlayImg.src = currentCategory[currentIndex];
-};
-
-document.querySelector(".nav.right").onclick = e => {
-  e.stopPropagation();
-  currentIndex =
-    (currentIndex + 1) % currentCategory.length;
-  overlayImg.src = currentCategory[currentIndex];
-};
