@@ -74,19 +74,17 @@ body {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 
-  column-gap: 15px;   /* YAN YANA GÜZEL KALIR */
-  row-gap: 8px;       /* ALT ALTA DAHA SIK */
-  
+  gap: 12px;              /* ⬅️ HER YÖN EŞİT */
   overflow-y: auto;
 }
 
-
 .gallery img {
   width: 100%;
-  height: 180px;
+  aspect-ratio: 4 / 3;    /* ⬅️ HEPSİ AYNI ORAN */
   object-fit: cover;
   border-radius: 16px;
   cursor: pointer;
+  display: block;
 }
 
 /* OVERLAY */

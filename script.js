@@ -15,6 +15,7 @@ function loadCategory(cat) {
     const img = document.createElement("img");
     img.src = src;
     img.loading = "lazy";
+    img.decoding = "async";
 
     img.onclick = () => openImage(index);
     gallery.appendChild(img);
