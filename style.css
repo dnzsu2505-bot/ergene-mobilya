@@ -387,3 +387,47 @@ body {
   }
 
 }
+
+/* =========================
+   MOBİL FINAL RESET (KESİN)
+   ========================= */
+
+@media (max-width: 900px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* KATEGORİLER */
+  .sidebar {
+    position: relative;
+    width: 100%;
+    max-height: 160px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .sidebar button {
+    flex: 0 0 auto;
+    font-size: 16px;
+    padding: 12px 16px;
+    white-space: nowrap;
+  }
+
+  /* GALERİ – GRID TAMAMEN KAPATILIYOR */
+  .gallery {
+    display: block !important;
+    padding: 12px;
+  }
+
+  .gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+    border-radius: 16px;
+  }
+}
