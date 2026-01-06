@@ -12,7 +12,10 @@ function loadCategory(cat) {
 
   currentCategory.forEach((src, index) => {
     const img = document.createElement("img");
-    img.src = src;
+    img.src = photo;
+    img.loading = "lazy";
+    img.decoding = "async";
+
     img.loading = "lazy";
 
     img.onclick = () => openImage(index);

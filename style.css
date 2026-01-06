@@ -315,3 +315,56 @@ body {
     height: 200px;
   }
 }
+
+/* GÖRSEL ÇAKIŞMA VE ORIENTATION FIX */
+.gallery {
+  align-items: stretch;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* TELEFON DİKEY */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery img {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+/* TELEFON YATAY */
+@media (max-height: 500px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sidebar {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .sidebar button {
+    font-size: 17px;
+    padding: 14px 16px;
+  }
+
+  .title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .lang button {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+}
