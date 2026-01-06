@@ -73,9 +73,13 @@ body {
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 15px;
+
+  column-gap: 15px;   /* YAN YANA GÜZEL KALIR */
+  row-gap: 8px;       /* ALT ALTA DAHA SIK */
+  
   overflow-y: auto;
 }
+
 
 .gallery img {
   width: 100%;
