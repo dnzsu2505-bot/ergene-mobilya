@@ -13,6 +13,8 @@ function loadCategory(cat) {
   currentCategory.forEach((src, index) => {
     const img = document.createElement("img");
     img.src = src;
+    img.loading = "lazy";
+
     img.onclick = () => openImage(index);
     gallery.appendChild(img);
   });
