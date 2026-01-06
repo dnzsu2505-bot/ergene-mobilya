@@ -1,5 +1,6 @@
 let currentCategory = [];
 let currentIndex = 0;
+
 const gallery = document.getElementById("gallery");
 const overlay = document.getElementById("overlay");
 const overlayImg = document.getElementById("overlayImg");
@@ -12,17 +13,14 @@ function loadCategory(cat) {
 
   currentCategory.forEach((src, index) => {
     const img = document.createElement("img");
-    img.src = photo;
+    img.src = src;                 // ✅ DÜZELTİLDİ
     img.loading = "lazy";
     img.decoding = "async";
-
-    img.loading = "lazy";
 
     img.onclick = () => openImage(index);
     gallery.appendChild(img);
   });
 }
-
 
 function openImage(index) {
   currentIndex = index;
@@ -32,15 +30,12 @@ function openImage(index) {
   overlayImg.style.transform = "scale(1)";
 }
 
-
 overlay.addEventListener("wheel", e => {
   e.preventDefault();
   zoom += e.deltaY * -0.001;
   zoom = Math.min(Math.max(1, zoom), 3);
   overlayImg.style.transform = `scale(${zoom})`;
 });
-
-
 
 overlay.addEventListener("click", () => {
   overlay.style.display = "none";
@@ -51,6 +46,9 @@ document.querySelectorAll(".sidebar button").forEach(btn => {
 });
 
 loadCategory("fabrika_tanitimi");
+
+/* ===== DİL DESTEĞİ ===== */
+
 const translations = {
   tr: {
     title: "Ergene Mobilya Sunumu",
@@ -87,16 +85,18 @@ function setLanguage(lang) {
 document.getElementById("tr").onclick = () => setLanguage("tr");
 document.getElementById("en").onclick = () => setLanguage("en");
 
+/* ===== SAĞ / SOL OKLAR ===== */
+
 document.querySelector(".nav.left").onclick = e => {
   e.stopPropagation();
-  currentIndex = (currentIndex - 1 + currentCategory.length) % currentCategory.length;
+  currentIndex =
+    (currentIndex - 1 + currentCategory.length) % currentCategory.length;
   overlayImg.src = currentCategory[currentIndex];
 };
 
 document.querySelector(".nav.right").onclick = e => {
   e.stopPropagation();
-  currentIndex = (currentIndex + 1) % currentCategory.length;
+  currentIndex =
+    (currentIndex + 1) % currentCategory.length;
   overlayImg.src = currentCategory[currentIndex];
 };
-
-

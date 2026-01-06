@@ -12,13 +12,14 @@ body {
   overflow: hidden;
 }
 
+/* SIDEBAR */
 .sidebar {
   width: 260px;
   background: #0b1c3d;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* ORTALAMA */
+  justify-content: center;
   gap: 14px;
 }
 
@@ -33,6 +34,25 @@ body {
   cursor: pointer;
 }
 
+/* MAIN */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOPBAR */
+.topbar {
+  height: 60px;
+  background: #0b1c3d;
+  color: #f5f0e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+
 .lang button {
   background: #f5f0e6;
   color: #0b1c3d;
@@ -45,24 +65,7 @@ body {
   margin-left: 8px;
 }
 
-
-.main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.topbar {
-  height: 60px;
-  background: #0b1c3d;
-  color: #f5f0e6;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  flex-shrink: 0;
-}
-
+/* GALLERY */
 .gallery {
   padding: 20px;
   overflow-y: auto;
@@ -79,7 +82,7 @@ body {
   cursor: pointer;
 }
 
-
+/* OVERLAY */
 #overlay {
   position: fixed;
   inset: 0;
@@ -95,6 +98,7 @@ body {
   transition: transform 0.1s;
 }
 
+/* NAV BUTTONS */
 .nav {
   position: absolute;
   top: 50%;
@@ -114,336 +118,4 @@ body {
 
 .nav.right {
   right: 30px;
-}
-
-/* ===== MOBİL & TABLET GELİŞMİŞ AYARLAR ===== */
-
-/* DİKEY TELEFON */
-@media (max-width: 768px) {
-
-  body {
-    flex-direction: column;
-    overflow: auto;
-  }
-
-  .topbar {
-    flex-direction: column;
-    gap: 8px;
-    padding: 12px;
-  }
-
-  .title {
-    font-size: 20px;
-    text-align: center;
-  }
-
-  .sidebar {
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 12px;
-    gap: 10px;
-  }
-
-  .sidebar button {
-    font-size: 15px;
-    padding: 12px 14px;
-    min-width: 140px;
-  }
-
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .gallery img {
-    height: 170px;
-  }
-}
-
-/* YATAY TELEFON / TABLET */
-@media (max-width: 1024px) and (orientation: landscape) {
-
-  body {
-    flex-direction: row;
-    overflow: hidden;
-  }
-
-  .sidebar {
-    width: 220px;
-    overflow-y: auto; /* KATEGORİLER KAYDIRILABİLİR */
-    justify-content: flex-start;
-  }
-
-  .gallery {
-    overflow-y: auto; /* FOTOĞRAFLAR KAYDIRILABİLİR */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-  }
-
-  .gallery img {
-    height: 160px;
-  }
-}
-
-/* ===============================
-   TELEFON & TABLET DÜZELTMELERİ
-   =============================== */
-
-/* TELEFON DİKEY */
-@media (max-width: 768px) {
-
-  body {
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .topbar {
-    flex-shrink: 0;
-    padding: 14px;
-  }
-
-  .title {
-    font-size: 22px;
-    text-align: center;
-  }
-
-  /* KATEGORİLER */
-  .sidebar {
-    width: 100%;
-    max-height: 40vh;           /* KATEGORİ ALANI */
-    overflow-y: auto;           /* KAYDIRMA AÇIK */
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 12px;
-    gap: 12px;
-  }
-
-  .sidebar button {
-    font-size: 16px;            /* YAZI BÜYÜTÜLDÜ */
-    padding: 14px 16px;
-    min-width: 150px;
-  }
-
-  /* GÖRSELLER */
-  .gallery {
-    flex: 1;
-    overflow-y: auto;           /* GÖRSELLER KAYDIRILABİLİR */
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-
-  .gallery img {
-    height: 190px;              /* GÖRSEL BÜYÜTÜLDÜ */
-  }
-}
-
-/* TELEFON / TABLET YATAY */
-@media (max-width: 1024px) and (orientation: landscape) {
-
-  body {
-    flex-direction: row;
-    overflow: hidden;
-  }
-
-  /* SOL KATEGORİLER */
-  .sidebar {
-    width: 240px;
-    height: 100vh;
-    overflow-y: auto;           /* 🔴 EN ÖNEMLİ SATIR */
-    justify-content: flex-start;
-    padding: 16px 10px;
-  }
-
-  .sidebar button {
-    font-size: 16px;
-    padding: 14px;
-  }
-
-  /* GÖRSEL ALANI */
-  .main {
-    flex: 1;
-    overflow: hidden;
-  }
-
-  .gallery {
-    height: calc(100vh - 60px);
-    overflow-y: auto;           /* GÖRSELLER KAYDIRILABİLİR */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
-  .gallery img {
-    height: 180px;
-  }
-}
-
-@media (max-width: 900px) {
-
-  .sidebar {
-    max-height: 100vh;
-    overflow-y: auto;
-  }
-
-  .sidebar::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .sidebar::-webkit-scrollbar-thumb {
-    background: #cbbfa3;
-    border-radius: 6px;
-  }
-
-  .sidebar button {
-    font-size: 16px;
-    padding: 12px;
-  }
-
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery img {
-    height: 200px;
-  }
-}
-
-/* GÖRSEL ÇAKIŞMA VE ORIENTATION FIX */
-.gallery {
-  align-items: stretch;
-}
-
-.gallery img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-/* TELEFON DİKEY */
-@media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery img {
-    aspect-ratio: 3 / 4;
-  }
-}
-
-/* TELEFON YATAY */
-@media (max-height: 500px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .sidebar {
-    max-height: 100vh;
-    overflow-y: auto;
-  }
-}
-
-@media (max-width: 768px) {
-
-  .sidebar button {
-    font-size: 17px;
-    padding: 14px 16px;
-  }
-
-  .title {
-    font-size: 20px;
-    text-align: center;
-  }
-
-  .lang button {
-    font-size: 16px;
-    padding: 12px 18px;
-  }
-}
-
-/* === MOBİL GÖRSEL ÇAKIŞMA KESİN FIX === */
-@media (max-width: 900px) {
-
-  .gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .gallery img {
-    width: 100%;
-    height: auto;
-    max-height: none;
-    object-fit: cover;
-    display: block;
-  }
-
-}
-
-/* === MOBİL STABİL GALERİ FIX === */
-@media (max-width: 900px) {
-
-  body {
-    overflow-x: hidden;
-  }
-
-  .sidebar {
-    max-height: 220px;
-    overflow-y: auto;
-  }
-
-  .gallery {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .gallery img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
-  }
-}
-
-  /* KATEGORİLER */
-  .sidebar {
-    position: relative;
-    width: 100%;
-    max-height: 160px;
-    overflow-y: auto;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .sidebar button {
-    flex: 0 0 auto;
-    font-size: 16px;
-    padding: 12px 16px;
-    white-space: nowrap;
-  }
-
-  /* GALERİ – GRID TAMAMEN KAPATILIYOR */
-  .gallery {
-    display: block !important;
-    padding: 12px;
-  }
-
-  .gallery img {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin-bottom: 16px;
-    border-radius: 16px;
-  }
 }
